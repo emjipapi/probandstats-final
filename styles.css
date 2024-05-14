@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'cc';
+  src: url('C&CRedAlert.ttf');
+  font-weight: medium;
+  font-style: normal;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'cc';
+  font-size: 40px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.container {
+  width: 800px;
+  max-width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  margin-top: 50px;
+  border-color: none;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  text-align: left;
+  position: relative; 
+  font-size: 44px;
+}
+.btn-no {
+  border-radius: 5px;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  text-align: left;
+  position: relative; /* Ensure that the ::after pseudo-element is positioned relative to this element */
+}
+
+.btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn:hover::after {
+  content: ">"; 
+  position: absolute; 
+  right: calc(100% + 10px); 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+.btn-no:hover::after {
+  content: "x"; 
+  position: absolute; 
+  right: calc(100% + 10px); 
+  top: 50%; 
+  transform: translateY(-50%); 
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .btn {
+      font-size: 26px;
+  }
+  .container {
+    width: 250px;
+    max-width: 100%;
+  }
+  *, *::before, *::after {
+    font-size: 24px;
+  }
+  .btn::after {
+  content: ">";
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btn-no::after {
+  content: "x";
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btn-grid {
+  margin-top: 10px;
+}
+}
